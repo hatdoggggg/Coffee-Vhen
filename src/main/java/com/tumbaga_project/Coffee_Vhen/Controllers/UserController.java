@@ -2,7 +2,6 @@ package com.tumbaga_project.Coffee_Vhen.Controllers;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +23,8 @@ public class UserController{
         this.repo = repo;
     }
 
-    //http://127.0.0.1:8080/users
-    //Get all Users
+    //http://127.0.0.1:8080/user
+    //Get all users
     @GetMapping("/user")
     public List<User> getUser(){
         return repo.findAll();
