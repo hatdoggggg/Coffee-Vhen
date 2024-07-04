@@ -1,0 +1,18 @@
+package com.tumbaga_project.Coffee_Vhen.Repository;
+
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.tumbaga_project.Coffee_Vhen.Model.UserAuth;
+
+public interface UserAuthRepository extends JpaRepository<UserAuth, Long> {
+
+        Optional<UserAuth> findByEmail(String email);
+        Optional<UserAuth> findByUsername(String username);
+        Optional<UserAuth> findByUsernameOrEmail(String email, String usrname);
+
+        Boolean existsByEmail(String email);
+        Boolean existsByUsername(String username);
+    
+        
+
+}

@@ -23,7 +23,7 @@ public class Productcontroller {
         this.repo = repo;
     }
 
-    //http://127.0.0.1/products
+    //http://127.0.0.1/product
     //Get all Products
     @GetMapping("/product")
     public List<Product> getProducts(){
