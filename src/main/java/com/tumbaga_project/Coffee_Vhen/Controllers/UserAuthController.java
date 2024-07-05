@@ -1,6 +1,7 @@
 package com.tumbaga_project.Coffee_Vhen.Controllers;
 
-import org.hibernate.mapping.Collection;
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,20 +10,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tumbaga_project.Coffee_Vhen.DTO.RegistrationRequest;
 import com.tumbaga_project.Coffee_Vhen.Model.Role;
 import com.tumbaga_project.Coffee_Vhen.Model.UserAuth;
 import com.tumbaga_project.Coffee_Vhen.Repository.RoleRepository;
+import com.tumbaga_project.Coffee_Vhen.Repository.UserAuthRepository;
 
 @RestController
 @RequestMapping("/api/v1/auth")
 public class UserAuthController{
 
     @Autowired
-    UserAuthController userAuthRepository;
+    UserAuthRepository userAuthRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -52,7 +53,7 @@ public class UserAuthController{
         );
 
         Role role = roleRepository.findByName("ROLE_ADMIN").get();
-        user.setRoles(Collection.singleton(role));
+        user.setRoles(Collections.singleton(role));
 
         userAuthRepository.save(user);
 
